@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  ColorSort
+
+  Created by Ikey Benzaken on 10/2/15.
+  Copyright © 2015 Apportable. All rights reserved.
+*/
+
+
+colorSorter = "Clasificador De Color";
+play = "Jugar";
+
+highScore_Label = "Puntación Mas Alta:";
+swipeTutorial = "Cuando los colores quedan demasiado rápido, muévase hacia arriba en cualquier momento que aminore su velocidad!";
+continue = "Continuar";
+gameover = "Fin Del Jeugo!";
+score = "Puntación:";

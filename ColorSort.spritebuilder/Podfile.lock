@@ -1,0 +1,10 @@
+PODS:
+  - ChartboostSDK (5.5.3)
+
+DEPENDENCIES:
+  - ChartboostSDK
+
+SPEC CHECKSUMS:
+  ChartboostSDK: 9bf9427b4c306773ea9f7d8cf974b4a3a0f1e61e
+
+COCOAPODS: 0.38.2

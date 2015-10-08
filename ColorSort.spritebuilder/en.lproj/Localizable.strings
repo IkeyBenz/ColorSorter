@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  ColorSort
+
+  Created by Ikey Benzaken on 10/2/15.
+  Copyright © 2015 Apportable. All rights reserved.
+*/
+
+
+colorSorter = "Color Sorter";
+play = "Play";
+
+highScore_Label = "High Score:";
+swipeTutorial = "When the colors get too fast, swipe up at anytime to slow them down!";
+continue = "Continue";
+gameover = "Game Over";
+score = "Score:";
