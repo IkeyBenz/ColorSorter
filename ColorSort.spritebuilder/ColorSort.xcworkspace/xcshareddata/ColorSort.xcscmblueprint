@@ -1,14 +1,16 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5AB1DE618279642C5E1100EF55790A63C926B2F2",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "40B5A62A377BE8C1FF1CD5B51E93C3757F887EBF",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "40B5A62A377BE8C1FF1CD5B51E93C3757F887EBF" : 0,
     "5AB1DE618279642C5E1100EF55790A63C926B2F2" : 0,
     "65B4F795F22031A50D3BBA306CFA99516E0877B6" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "36F0BD59-56ED-4E02-A6BC-A6C45B111D37",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "40B5A62A377BE8C1FF1CD5B51E93C3757F887EBF" : "ColorSorter\/",
     "5AB1DE618279642C5E1100EF55790A63C926B2F2" : "ColorSort",
     "65B4F795F22031A50D3BBA306CFA99516E0877B6" : ""
   },
@@ -16,6 +18,11 @@
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ColorSort.spritebuilder\/ColorSort.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IkeyBenz\/ColorSorter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40B5A62A377BE8C1FF1CD5B51E93C3757F887EBF"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/IkeyBenz\/ColorSort.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
