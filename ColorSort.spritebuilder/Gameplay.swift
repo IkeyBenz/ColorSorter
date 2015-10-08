@@ -266,7 +266,7 @@ class Gameplay: CCScene, ChartboostDelegate {
             }
         }
     }
-    //HELOO
+    
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if currentColorBeingTouched != nil {
             repositionColor(currentColorBeingTouched)
