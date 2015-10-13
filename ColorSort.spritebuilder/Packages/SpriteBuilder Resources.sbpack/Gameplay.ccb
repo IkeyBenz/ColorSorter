@@ -5783,7 +5783,7 @@ too fast, swipe up at anytime to slow them down!</string>
 								<string>String</string>
 								<key>value</key>
 								<array>
-									<string>Highscores</string>
+									<string>High Scores</string>
 									<false/>
 								</array>
 							</dict>
@@ -6526,8 +6526,6 @@ too fast, swipe up at anytime to slow them down!</string>
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -7161,7 +7159,7 @@ too fast, swipe up at anytime to slow them down!</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1.0333333015441895</real>
+			<real>3.2999999523162842</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

@@ -12,6 +12,7 @@ import GameKit
 class MainScene: CCScene {
     weak var colorSorterLabel: CCLabelTTF!
     weak var playButton: CCButton!
+    
     override func onEnter() {
         super.onEnter()
         iAdHandler.sharedInstance.loadAds(bannerPosition: .Bottom)

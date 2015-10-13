@@ -10,9 +10,9 @@ import UIKit
 
 class GameStateSingleton: NSObject {
     
-    var alreadyLoaded: Bool = NSUserDefaults.standardUserDefaults().boolForKey("AlreadyLoaded1.4.1") {
+    var alreadyLoaded: Bool = NSUserDefaults.standardUserDefaults().boolForKey("AlreadyLoaded1.4.3") {
         didSet {
-            NSUserDefaults.standardUserDefaults().setBool(alreadyLoaded, forKey: "AlreadyLoaded1.4.1")
+            NSUserDefaults.standardUserDefaults().setBool(alreadyLoaded, forKey: "AlreadyLoaded1.4.3")
         }
     }
     
@@ -49,6 +49,18 @@ class GameStateSingleton: NSObject {
     var shouldPlayTutorial: Bool = NSUserDefaults.standardUserDefaults().boolForKey("shouldPlayTutorial") {
         didSet {
             NSUserDefaults.standardUserDefaults().setBool(shouldPlayTutorial, forKey: "shouldPlayTutorial")
+        }
+    }
+    
+    var amountOfGamesPlayed: Int = NSUserDefaults.standardUserDefaults().integerForKey("amountOfGamesPlayed") {
+        didSet {
+            NSUserDefaults.standardUserDefaults().setInteger(amountOfGamesPlayed, forKey: "amountOfGamesPlayed")
+        }
+    }
+    
+    var alreadyWroteReview: Bool = NSUserDefaults.standardUserDefaults().boolForKey("wroteReview1.4.3") {
+        didSet {
+            NSUserDefaults.standardUserDefaults().setBool(alreadyWroteReview, forKey: "wroteReview1.4.3")
         }
     }
     

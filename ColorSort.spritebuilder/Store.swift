@@ -47,7 +47,6 @@ class Store: CCScene, InAppPurchasesDelegate, sharingDelegate, ChartboostDelegat
         CCDirector.sharedDirector().presentScene(CCBReader.loadAsScene("Gameplay"))
     }
     func writeAReview() {
-        print("This acrually happened")
         if !wroteReview {
             if let url = NSURL(string: "https://appsto.re/us/PVxC9.i") {
                 UIApplication.sharedApplication().openURL(url)

@@ -228,6 +228,7 @@ class Gameplay: CCScene, ChartboostDelegate {
         }
         
         if gameover {
+            userInteractionEnabled = false
             restartButton.visible = true
             pausedButton.visible = false
             scoreLabel.visible = false
@@ -237,13 +238,18 @@ class Gameplay: CCScene, ChartboostDelegate {
             
             if !gameoverLabelFell {
                 unschedule("spawnColors")
-                Chartboost.showInterstitial(CBLocationGameOver)
                 animationManager.runAnimationsForSequenceNamed("Game Over")
                 let takePicture = CCActionCallBlock(block: {GameStateSingleton.sharedInstance.screenShot = self.takeScreenshot()})
                 let delay = CCActionDelay(duration: 1)
                 runAction(CCActionSequence(array: [delay, takePicture]))
                 gameoverLabelFell = true
-                
+                if GameStateSingleton.sharedInstance.amountOfGamesPlayed >= 8 && !GameStateSingleton.sharedInstance.alreadyWroteReview {
+                    askToRateGame()
+                    GameStateSingleton.sharedInstance.amountOfGamesPlayed = 0
+                } else {
+                    Chartboost.showInterstitial(CBLocationGameOver)
+                    GameStateSingleton.sharedInstance.amountOfGamesPlayed++
+                }
             }
         }
     }
@@ -251,8 +257,9 @@ class Gameplay: CCScene, ChartboostDelegate {
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         currentTouchLocation = touch.locationInWorld()
         for color in colorArray {
-            if color.boundingBox().contains(currentTouchLocation) {
+            if Int(abs(touch.locationInWorld().x - color.position.x)) < 70 && Int(abs(touch.locationInWorld().y - color.position.y)) < 50 {
                 currentColorBeingTouched = color
+                currentColorBeingTouched.scale = 1.1
             }
         }
         
@@ -270,6 +277,7 @@ class Gameplay: CCScene, ChartboostDelegate {
     override func touchEnded(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         if currentColorBeingTouched != nil {
             repositionColor(currentColorBeingTouched)
+            currentColorBeingTouched.scale = 1
             if effectsAreEnabled() {
                 audio.playEffect("popSoundEffect.mp3")
             }
@@ -278,14 +286,16 @@ class Gameplay: CCScene, ChartboostDelegate {
                     userAlreadyDraggedFirstColor = true
                     if tutorialColor.position.x == screenWidthPercent * 70 {
                         animationManager.runAnimationsForSequenceNamed("Default Timeline")
-                        tutorialColor.move(2.3, screenHeight: -CCDirector.sharedDirector().viewSize().height / 2)
+                        tutorialColor.stopAllActions()
+                        tutorialColor.move(4, screenHeight: -CCDirector.sharedDirector().viewSize().height)
                         sendSecondTutorialColor()
                     }
                 } else if currentColorBeingTouched == secondTutorialColor {
                     userAlreadyDraggedSecondColor = true
                     if secondTutorialColor.position.x == screenWidthPercent * 30 {
                         animationManager.runAnimationsForSequenceNamed("Default Timeline")
-                        secondTutorialColor.move(2.3, screenHeight: -CCDirector.sharedDirector().viewSize().height / 2)
+                        secondTutorialColor.stopAllActions()
+                        secondTutorialColor.move(4, screenHeight: -CCDirector.sharedDirector().viewSize().height)
                         playingTutorial = false
                         if thisIsTheFirstGame {
                             GameStateSingleton.sharedInstance.shouldPlayTutorial = false
@@ -528,6 +538,12 @@ class Gameplay: CCScene, ChartboostDelegate {
             swipesTutorialAlreadyShowedForCurrentGame = true
         }
     }
+    // ALERT USER TO RATE COLOR SORTER
+    func askToRateGame() {
+        let alert: UIAlertView = UIAlertView(title: "Enjoying Color Sorter?", message: "Leave us a review :)", delegate: self, cancelButtonTitle: "No, I'm a terrible person")
+        alert.addButtonWithTitle("Sure!")
+        alert.show()
+    }
     
     
     // BUTTONS
@@ -581,6 +597,17 @@ class Gameplay: CCScene, ChartboostDelegate {
     func didFailToLoadInterstitial(location: String!, withError error: CBLoadError) {
         Chartboost.showMoreApps(CBLocationGameOver)
     }
+    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
+        let title: NSString = alertView.buttonTitleAtIndex(buttonIndex)!
+        if title.isEqualToString("Sure!") {
+            if let url = NSURL(string: "https://appsto.re/us/PVxC9.i") {
+                UIApplication.sharedApplication().openURL(url)
+                GameStateSingleton.sharedInstance.alreadyWroteReview = true
+            }
+        }
+    }
+    
+    
 }
 
 // GAMECENTER
