@@ -9,7 +9,7 @@
 import Foundation
 
 class Colors: CCNode {
-    var colorNode: CCNodeColor!
+    weak var colorNode: CCNodeColor!
     
     func move(speed: CCTime, screenHeight: CGFloat) {
         var move: CCActionMoveBy!

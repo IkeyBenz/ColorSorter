@@ -3563,7 +3563,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Visit swipe store!</string>
+							<string>Not Enough Swipes!</string>
 							<false/>
 						</array>
 					</dict>
@@ -5049,7 +5049,7 @@ too fast, swipe up at anytime to slow them down!</string>
 								<key>value</key>
 								<array>
 									<real>0.5</real>
-									<real>0.40000000596046448</real>
+									<real>0.35422533750534058</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -5375,7 +5375,7 @@ too fast, swipe up at anytime to slow them down!</string>
 								<key>value</key>
 								<array>
 									<real>0.20000000298023224</real>
-									<real>0.20000000298023224</real>
+									<real>0.16478872299194336</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -5701,7 +5701,7 @@ too fast, swipe up at anytime to slow them down!</string>
 								<key>value</key>
 								<array>
 									<real>0.80000001192092896</real>
-									<real>0.20000000298023224</real>
+									<real>0.16478872299194336</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -6006,7 +6006,7 @@ too fast, swipe up at anytime to slow them down!</string>
 						<key>displayName</key>
 						<string>Store</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>earnSwipesButton</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>
@@ -6027,7 +6027,7 @@ too fast, swipe up at anytime to slow them down!</string>
 								<key>value</key>
 								<array>
 									<real>0.5</real>
-									<real>0.0</real>
+									<real>-0.024647887796163559</real>
 									<integer>0</integer>
 									<integer>2</integer>
 									<integer>2</integer>
@@ -6603,6 +6603,8 @@ too fast, swipe up at anytime to slow them down!</string>
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

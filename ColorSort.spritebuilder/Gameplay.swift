@@ -48,6 +48,7 @@ class Gameplay: CCScene, ChartboostDelegate {
     weak var pausedButton: CCButton!
     weak var restartButton: CCButton!
     weak var continueButton: CCButton!
+    weak var earnSwipesButton: CCButton!
     
     // BOOLEANS
     var playingTutorial: Bool = false
@@ -171,6 +172,7 @@ class Gameplay: CCScene, ChartboostDelegate {
         Chartboost.startWithAppId(kChartboostAppID, appSignature: kChartboostAppSignature, delegate: self);
         Chartboost.cacheInterstitial(CBLocationGameOver)
         Chartboost.cacheMoreApps(CBLocationGameOver)
+        Chartboost.cacheRewardedVideo(CBLocationGameOver)
     }
     
     func didLoadFromCCB() {
@@ -196,8 +198,9 @@ class Gameplay: CCScene, ChartboostDelegate {
         iAdHandler.sharedInstance.displayBannerAd()
         userInteractionEnabled = true
         swipesLeftIndicator.string = "Swipes Left: \(swipesLeft)"
-        
         schedule("spawnColors", interval: CCTime(distanceBetweenColors))
+        
+        // ALLOW PLAYERS TO LISTEN TO THEIR OWN MUSIC
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
         } catch _ {
@@ -228,6 +231,8 @@ class Gameplay: CCScene, ChartboostDelegate {
         }
         
         if gameover {
+            swipesLeftIndicator.visible = true
+            swipesLeftIndicator.opacity = 1
             userInteractionEnabled = false
             restartButton.visible = true
             pausedButton.visible = false
@@ -237,12 +242,12 @@ class Gameplay: CCScene, ChartboostDelegate {
             }
             
             if !gameoverLabelFell {
+                CCDirector.sharedDirector().view.removeGestureRecognizer(swipeUp)
                 unschedule("spawnColors")
                 animationManager.runAnimationsForSequenceNamed("Game Over")
                 let takePicture = CCActionCallBlock(block: {GameStateSingleton.sharedInstance.screenShot = self.takeScreenshot()})
                 let delay = CCActionDelay(duration: 1)
                 runAction(CCActionSequence(array: [delay, takePicture]))
-                gameoverLabelFell = true
                 if GameStateSingleton.sharedInstance.amountOfGamesPlayed >= 8 && !GameStateSingleton.sharedInstance.alreadyWroteReview {
                     askToRateGame()
                     GameStateSingleton.sharedInstance.amountOfGamesPlayed = 0
@@ -250,6 +255,10 @@ class Gameplay: CCScene, ChartboostDelegate {
                     Chartboost.showInterstitial(CBLocationGameOver)
                     GameStateSingleton.sharedInstance.amountOfGamesPlayed++
                 }
+                if !Chartboost.hasRewardedVideo(CBLocationGameOver) {
+                    earnSwipesButton.visible = false
+                }
+                gameoverLabelFell = true
             }
         }
     }
@@ -257,7 +266,7 @@ class Gameplay: CCScene, ChartboostDelegate {
     override func touchBegan(touch: CCTouch!, withEvent event: CCTouchEvent!) {
         currentTouchLocation = touch.locationInWorld()
         for color in colorArray {
-            if Int(abs(touch.locationInWorld().x - color.position.x)) < 70 && Int(abs(touch.locationInWorld().y - color.position.y)) < 50 {
+            if  Int(abs(touch.locationInWorld().x - color.position.x)) < 70 && Int(abs(touch.locationInWorld().y - color.position.y)) < 50 || CGRectContainsPoint(color.boundingBox(), currentTouchLocation) {
                 currentColorBeingTouched = color
                 currentColorBeingTouched.scale = 1.1
             }
@@ -312,6 +321,7 @@ class Gameplay: CCScene, ChartboostDelegate {
             if effectsAreEnabled() {
                 audio.playEffect("popSoundEffect.mp3")
             }
+            currentColorBeingTouched.scale = 1
             currentColorBeingTouched = nil
         }
     }
@@ -580,8 +590,19 @@ class Gameplay: CCScene, ChartboostDelegate {
     }
     func showStore() {
         audio.stopBg()
-        CCDirector.sharedDirector().view.removeGestureRecognizer(swipeUp)
-        CCDirector.sharedDirector().presentScene(CCBReader.loadAsScene("Store"))
+        if Chartboost.hasRewardedVideo(CBLocationGameOver) {
+            Chartboost.showRewardedVideo(CBLocationGameOver)
+            Chartboost.cacheRewardedVideo(CBLocationGameOver)
+            GameStateSingleton.sharedInstance.swipesLeft += 1
+            swipesLeftIndicator.string = String("Swipes Left: \(GameStateSingleton.sharedInstance.swipesLeft)")
+        } else {
+            let alert = UIAlertView()
+            alert.title = "OH NO!!"
+            alert.message = "Looks like the ads could not load!"
+            alert.addButtonWithTitle("That sucks")
+            alert.show()
+        }
+    //    CCDirector.sharedDirector().presentScene(CCBReader.loadAsScene("Store"))
     }
     
     
