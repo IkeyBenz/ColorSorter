@@ -15,3 +15,6 @@ swipeTutorial = "Cuando los colores quedan demasiado rápido, muévase hacia arr
 continue = "Continuar";
 gameover = "Fin Del Jeugo!";
 score = "Puntación:";
+restart = "Reanudar";
+highscore = "Puntajes altos";
+home = "Portada";

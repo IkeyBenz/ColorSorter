@@ -49,6 +49,8 @@ class Gameplay: CCScene, ChartboostDelegate {
     weak var restartButton: CCButton!
     weak var continueButton: CCButton!
     weak var earnSwipesButton: CCButton!
+    weak var highScoreButton: CCButton!
+    weak var homeButton: CCButton!
     
     // BOOLEANS
     var playingTutorial: Bool = false
@@ -191,8 +193,11 @@ class Gameplay: CCScene, ChartboostDelegate {
         highScoreLabel.string = NSLocalizedString("highScore_Label", comment: "") + String(" \(GameStateSingleton.sharedInstance.highscore)")
         swipeTutorialLabel.string = NSLocalizedString("swipeTutorial", comment: "")
         continueButton.title = NSLocalizedString("continue", comment: "")
+        restartButton.title = NSLocalizedString("restart", comment: "")
         gameOverLabel.string = NSLocalizedString("gameover", comment: "")
         gameOverScore.string = NSLocalizedString("score", comment: "") + String(" \(score)")
+        highScoreButton.title = NSLocalizedString("highscore", comment: "")
+        homeButton.title = NSLocalizedString("home", comment: "")
         
         // SHOW ADS AND SET INITIAL GAMEPLAY PROPERTIES
         iAdHandler.sharedInstance.displayBannerAd()

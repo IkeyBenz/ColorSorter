@@ -15,3 +15,6 @@ swipeTutorial = "When the colors get too fast, swipe up at anytime to slow them 
 continue = "Continue";
 gameover = "Game Over";
 score = "Score:";
+restart = "Try Again";
+highscores = "High Scores";
+home = "Home";

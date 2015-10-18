@@ -111,7 +111,7 @@ class iAdHandler: NSObject {
             }
         }
     }
-    
+
     
     // MARK: Interstitial Functions
     

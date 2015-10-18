@@ -1679,6 +1679,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -1788,7 +1790,7 @@
 								<string>Size</string>
 								<key>value</key>
 								<array>
-									<real>0.51999998092651367</real>
+									<real>0.56999999284744263</real>
 									<real>45</real>
 									<integer>2</integer>
 									<integer>0</integer>
@@ -5354,7 +5356,7 @@ too fast, swipe up at anytime to slow them down!</string>
 						<key>displayName</key>
 						<string>HomeButton</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>homeButton</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>
@@ -5680,7 +5682,7 @@ too fast, swipe up at anytime to slow them down!</string>
 						<key>displayName</key>
 						<string>LeaderBoards</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>highScoreButton</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>
@@ -6603,8 +6605,6 @@ too fast, swipe up at anytime to slow them down!</string>
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
