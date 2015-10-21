@@ -21,6 +21,7 @@ home = "Home";
 
 
 // Paused Menu
+paused = "Paused";
 tutorialOn = "Tutorial: On";
 tutorialOff = "Tutorial: Off";
 soundFXon = "Sound Effects: On";

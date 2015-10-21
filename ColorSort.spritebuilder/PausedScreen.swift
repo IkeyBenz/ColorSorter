@@ -18,7 +18,7 @@ class PausedScreen: CCNode {
     
     func didLoadFromCCB() {
         highscoreButton.title = NSLocalizedString("highscores", comment: "")
-        
+        pausedLabel.string = NSLocalizedString("paused", comment: "")
         if GameStateSingleton.sharedInstance.backgroundMusicEnabled {
             musicButton.title = NSLocalizedString("musicOn", comment: "")
         } else {

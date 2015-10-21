@@ -20,6 +20,7 @@ highscores = "Puntajes Altos";
 home = "Portada";
 
 // Paused Menu
+paused = "Detenido";
 tutorialOn = "Tutorial: En";
 tutorialOff = "Tutorial: Apagado";
 soundFXon = "Efectos De Sonido: En";
