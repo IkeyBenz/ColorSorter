@@ -16,5 +16,13 @@ continue = "Continuar";
 gameover = "Fin Del Jeugo!";
 score = "Puntación:";
 restart = "Reanudar";
-highscore = "Puntajes altos";
+highscores = "Puntajes Altos";
 home = "Portada";
+
+// Paused Menu
+tutorialOn = "Tutorial: En";
+tutorialOff = "Tutorial: Apagado";
+soundFXon = "Efectos De Sonido: En";
+soundFXoff = "Efectos De Sonido: Apagado";
+musicOn = "Música: En";
+musicOff = "Música: Apagado";

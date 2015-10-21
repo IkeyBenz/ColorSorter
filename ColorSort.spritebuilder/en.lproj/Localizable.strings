@@ -18,3 +18,12 @@ score = "Score:";
 restart = "Try Again";
 highscores = "High Scores";
 home = "Home";
+
+
+// Paused Menu
+tutorialOn = "Tutorial: On";
+tutorialOff = "Tutorial: Off";
+soundFXon = "Sound Effects: On";
+soundFXoff = "Sound Effects: Off";
+musicOn = "Music: On";
+musicOff = "Music: Off";

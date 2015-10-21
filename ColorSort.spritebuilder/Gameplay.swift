@@ -197,7 +197,7 @@ class Gameplay: CCScene, ChartboostDelegate {
         restartButton.title = NSLocalizedString("restart", comment: "")
         gameOverLabel.string = NSLocalizedString("gameover", comment: "")
         gameOverScore.string = NSLocalizedString("score", comment: "") + String(" \(score)")
-        highScoreButton.title = NSLocalizedString("highscore", comment: "")
+        highScoreButton.title = NSLocalizedString("highscores", comment: "")
         homeButton.title = NSLocalizedString("home", comment: "")
         
         // SHOW ADS AND SET INITIAL GAMEPLAY PROPERTIES
