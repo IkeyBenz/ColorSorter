@@ -62,6 +62,7 @@ class Gameplay: CCScene, ChartboostDelegate {
     var gameoverLabelFell: Bool = false
     var gameover: Bool = false
     var swipesTutorialAlreadyShowedForCurrentGame: Bool = false
+    var alreadySetSecondTutorialColor: Bool = false
     
     
     
@@ -302,7 +303,9 @@ class Gameplay: CCScene, ChartboostDelegate {
                         animationManager.runAnimationsForSequenceNamed("Default Timeline")
                         tutorialColor.stopAllActions()
                         tutorialColor.move(4, screenHeight: -CCDirector.sharedDirector().viewSize().height)
-                        sendSecondTutorialColor()
+                        if !alreadySetSecondTutorialColor {
+                            sendSecondTutorialColor()
+                        }
                     }
                 } else if currentColorBeingTouched == secondTutorialColor {
                     userAlreadyDraggedSecondColor = true
@@ -518,6 +521,7 @@ class Gameplay: CCScene, ChartboostDelegate {
         }
     }
     func sendSecondTutorialColor() {
+        alreadySetSecondTutorialColor = true
         secondTutorialColor.colorNode.color = CCColor(ccColor3b: ccColor3B(r: 96, g: 211, b: 148))
         colorSpawnNode.addChild(secondTutorialColor)
         colorArray.append(secondTutorialColor)
@@ -531,7 +535,7 @@ class Gameplay: CCScene, ChartboostDelegate {
         }
     }
     func showSecondColorsHand() {
-        if !userAlreadyDraggedSecondColor {
+        if !userAlreadyDraggedSecondColor && !gameover {
             animationManager.runAnimationsForSequenceNamed("Second Color Hand")
         }
     }
