@@ -11,6 +11,7 @@ import GameKit
 
 class MainScene: CCScene {
     weak var colorSorterLabel: CCLabelTTF!
+    weak var highScoreLabel: CCLabelTTF!
     weak var playButton: CCButton!
     
     override func onEnter() {
@@ -19,8 +20,12 @@ class MainScene: CCScene {
         setUpGameCenter()
         colorSorterLabel.string = NSLocalizedString("colorSorter", comment: "")
         playButton.title = NSLocalizedString("play", comment: "")
+        highScoreLabel.string = NSLocalizedString("highScore_Label", comment: "") + String(" \(GameStateSingleton.sharedInstance.highscore)")
     }
     func play() {
+        animationManager.runAnimationsForSequenceNamed("Go To Gameplay")
+    }
+    func gotoGameplay() {
         CCDirector.sharedDirector().presentScene(CCBReader.loadAsScene("Gameplay"))
     }
 }
