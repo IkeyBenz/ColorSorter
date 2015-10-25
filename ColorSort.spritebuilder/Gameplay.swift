@@ -201,7 +201,9 @@ class Gameplay: CCScene, ChartboostDelegate {
         homeButton.title = NSLocalizedString("home", comment: "")
         
         // SHOW ADS AND SET INITIAL GAMEPLAY PROPERTIES
-        iAdHandler.sharedInstance.displayBannerAd()
+        if !iAdHandler.sharedInstance.isBannerDisplaying {
+            iAdHandler.sharedInstance.loadAds(bannerPosition: .Bottom)
+        }
         userInteractionEnabled = true
         swipesLeftIndicator.string = "Swipes Left: \(swipesLeft)"
         schedule("spawnColors", interval: CCTime(distanceBetweenColors))
@@ -254,7 +256,7 @@ class Gameplay: CCScene, ChartboostDelegate {
                 let takePicture = CCActionCallBlock(block: {GameStateSingleton.sharedInstance.screenShot = self.takeScreenshot()})
                 let delay = CCActionDelay(duration: 1)
                 runAction(CCActionSequence(array: [delay, takePicture]))
-                if GameStateSingleton.sharedInstance.amountOfGamesPlayed >= 8 && !GameStateSingleton.sharedInstance.alreadyWroteReview {
+                if GameStateSingleton.sharedInstance.amountOfGamesPlayed >= 7 && !GameStateSingleton.sharedInstance.alreadyWroteReview {
                     askToRateGame()
                     GameStateSingleton.sharedInstance.amountOfGamesPlayed = 0
                 } else {
@@ -559,8 +561,12 @@ class Gameplay: CCScene, ChartboostDelegate {
     }
     // ALERT USER TO RATE COLOR SORTER
     func askToRateGame() {
-        let alert: UIAlertView = UIAlertView(title: "Enjoying Color Sorter?", message: "Leave us a review :)", delegate: self, cancelButtonTitle: "No, I'm a terrible person")
-        alert.addButtonWithTitle("Sure!")
+        let alertTitle = NSLocalizedString("alertTitle", comment: "")
+        let alertMessage = NSLocalizedString("alertMessage", comment: "")
+        let alertCancel = NSLocalizedString("alertCancel", comment: "")
+        let sure = NSLocalizedString("sure", comment: "")
+        let alert: UIAlertView = UIAlertView(title: alertTitle, message: alertMessage, delegate: self, cancelButtonTitle: alertCancel)
+        alert.addButtonWithTitle(sure)
         alert.show()
     }
     
@@ -629,7 +635,8 @@ class Gameplay: CCScene, ChartboostDelegate {
     }
     func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
         let title: NSString = alertView.buttonTitleAtIndex(buttonIndex)!
-        if title.isEqualToString("Sure!") {
+        let sureString = NSLocalizedString("sure", comment: "")
+        if title.isEqualToString(sureString) {
             if let url = NSURL(string: "https://appsto.re/us/PVxC9.i") {
                 UIApplication.sharedApplication().openURL(url)
                 GameStateSingleton.sharedInstance.alreadyWroteReview = true
@@ -657,6 +664,13 @@ extension Gameplay: GKGameCenterControllerDelegate {
         gameCenterInteractor.authenticationCheck()
     }
 }
+
+//extension Gameplay: BannerDelegate {
+//    func bannerLoaded() {
+//        iAdHandler.sharedInstance.displayBannerAd()
+//        print("yes")
+//    }
+//}
 
 
 

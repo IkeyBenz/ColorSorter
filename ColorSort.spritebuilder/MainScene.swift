@@ -16,8 +16,8 @@ class MainScene: CCScene {
     
     override func onEnter() {
         super.onEnter()
-        iAdHandler.sharedInstance.loadAds(bannerPosition: .Bottom)
         setUpGameCenter()
+        playButton.userInteractionEnabled = true
         colorSorterLabel.string = NSLocalizedString("colorSorter", comment: "")
         playButton.title = NSLocalizedString("play", comment: "")
         highScoreLabel.string = NSLocalizedString("highScore_Label", comment: "") + String(" \(GameStateSingleton.sharedInstance.highscore)")

@@ -27,3 +27,9 @@ soundFXon = "Efectos De Sonido: En";
 soundFXoff = "Efectos De Sonido: Apagado";
 musicOn = "Música: En";
 musicOff = "Música: Apagado";
+
+// Review Alert
+alertTitle = "¿Divirtiéndose?";
+alertMessage = "Dejar Un Comentario :)";
+alertCancel = "No, soy una persona terrible";
+sure = "Sí!";

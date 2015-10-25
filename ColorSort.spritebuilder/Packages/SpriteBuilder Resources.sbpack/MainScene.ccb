@@ -2478,7 +2478,7 @@
 							<real>1</real>
 							<real>0.83921569585800171</real>
 							<real>0.29411765933036804</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -2489,7 +2489,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -2664,7 +2664,7 @@
 							<real>1</real>
 							<real>0.83921569585800171</real>
 							<real>0.29411765933036804</real>
-							<real>0.0</real>
+							<real>0.75</real>
 						</array>
 					</dict>
 					<dict>
@@ -2675,7 +2675,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>0.75</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -2850,7 +2850,7 @@
 							<real>0.37647059559822083</real>
 							<real>0.82745099067687988</real>
 							<real>0.58039218187332153</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -2861,7 +2861,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -3036,7 +3036,7 @@
 							<real>0.37647059559822083</real>
 							<real>0.82745099067687988</real>
 							<real>0.58039218187332153</real>
-							<real>0.0</real>
+							<real>0.75</real>
 						</array>
 					</dict>
 					<dict>
@@ -3047,7 +3047,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>0.75</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -3222,7 +3222,7 @@
 							<real>0.64313727617263794</real>
 							<real>0.3960784375667572</real>
 							<real>0.67843139171600342</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -3233,7 +3233,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -3408,7 +3408,7 @@
 							<real>0.64313727617263794</real>
 							<real>0.3960784375667572</real>
 							<real>0.67843139171600342</real>
-							<real>0.0</real>
+							<real>0.75</real>
 						</array>
 					</dict>
 					<dict>
@@ -3419,7 +3419,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>0.75</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -3594,7 +3594,7 @@
 							<real>0.035294119268655777</real>
 							<real>0.30196079611778259</real>
 							<real>0.57254904508590698</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -3605,7 +3605,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -3780,7 +3780,7 @@
 							<real>0.035294119268655777</real>
 							<real>0.30196079611778259</real>
 							<real>0.57254904508590698</real>
-							<real>0.0</real>
+							<real>0.75</real>
 						</array>
 					</dict>
 					<dict>
@@ -3791,7 +3791,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>0.75</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -3966,7 +3966,7 @@
 							<real>0.93725490570068359</real>
 							<real>0.50980395078659058</real>
 							<real>0.45882353186607361</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -3977,7 +3977,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 				</array>
 				<key>seqExpanded</key>
@@ -4152,7 +4152,7 @@
 							<real>0.93725490570068359</real>
 							<real>0.50980395078659058</real>
 							<real>0.45882353186607361</real>
-							<real>0.0</real>
+							<real>0.75</real>
 						</array>
 					</dict>
 					<dict>
@@ -4163,11 +4163,9 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>0.75</real>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 				<key>seqExpanded</key>
 				<true/>
 			</dict>
@@ -4439,20 +4437,7 @@
 								<key>type</key>
 								<string>Float</string>
 								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>color</string>
-								<key>type</key>
-								<string>Color3</string>
-								<key>value</key>
-								<array>
-									<real>1</real>
-									<real>1</real>
-									<real>1</real>
-									<real>0.0</real>
-								</array>
+								<real>1</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4750,20 +4735,7 @@
 								<key>type</key>
 								<string>Float</string>
 								<key>value</key>
-								<real>0.0</real>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>color</string>
-								<key>type</key>
-								<string>Color3</string>
-								<key>value</key>
-								<array>
-									<real>1</real>
-									<real>1</real>
-									<real>1</real>
-									<real>0.0</real>
-								</array>
+								<real>1</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -4961,7 +4933,7 @@
 							<real>0.62745100259780884</real>
 							<real>0.62745100259780884</real>
 							<real>0.62745100259780884</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -4972,7 +4944,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 				</array>
 			</dict>
@@ -5114,8 +5086,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1.5522241592407227</real>
-							<real>1.5522241592407227</real>
+							<real>1.5</real>
+							<real>1.5</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -5150,7 +5122,7 @@
 						<key>type</key>
 						<string>Float</string>
 						<key>value</key>
-						<real>0.0</real>
+						<real>1</real>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -5162,7 +5134,7 @@
 							<real>1</real>
 							<real>1</real>
 							<real>1</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -5174,6 +5146,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -5368,7 +5342,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>3.1666667461395264</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>

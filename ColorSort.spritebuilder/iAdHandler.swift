@@ -12,16 +12,20 @@ class iAdHandler: NSObject {
     // MARK: Variables
     
     let view = CCDirector.sharedDirector().parentViewController!.view // Returns a UIView of the cocos2d parent view controller.
+//    var delegate: BannerDelegate!
     
     var adBannerView = ADBannerView(frame: CGRect.zero)
     var bannerPosition: BannerPosition = .Top
     var isBannerDisplaying: Bool = false
+    
+//    let mainScene = MainScene()
 
     
     var interstitial = ADInterstitialAd()
     var interstitialAdView: UIView = UIView()
     var isInterstitialDisplaying: Bool = false
     var isInterstitialLoaded: Bool = false
+    var playButtonWasPressed: Bool = false
     
     var closeButton: UIButton!
     
@@ -257,6 +261,7 @@ extension iAdHandler: ADBannerViewDelegate {
     */
     func bannerViewDidLoadAd(banner: ADBannerView!) {
         print("Successfully loaded banner!")
+        displayBannerAd()
     }
     
     /**
@@ -267,6 +272,7 @@ extension iAdHandler: ADBannerViewDelegate {
         loadAds(bannerPosition: .Bottom)
     }
 }
+
 
 
 

@@ -28,3 +28,9 @@ soundFXon = "Sound Effects: On";
 soundFXoff = "Sound Effects: Off";
 musicOn = "Music: On";
 musicOff = "Music: Off";
+
+// Review Alert
+alertTitle = "Enjoying Color Sorter?";
+alertMessage = "Leave us a review :)";
+alertCancel = "No, I'm a terrible person";
+sure = "Sure!";
