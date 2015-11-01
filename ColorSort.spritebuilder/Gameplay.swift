@@ -665,6 +665,9 @@ extension Gameplay: GKGameCenterControllerDelegate {
     }
 }
 
+// PENNIS
+
+
 //extension Gameplay: BannerDelegate {
 //    func bannerLoaded() {
 //        iAdHandler.sharedInstance.displayBannerAd()
