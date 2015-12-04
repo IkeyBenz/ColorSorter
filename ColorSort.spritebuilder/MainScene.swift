@@ -16,14 +16,18 @@ class MainScene: CCScene {
     
     override func onEnter() {
         super.onEnter()
-        setUpGameCenter()
         playButton.userInteractionEnabled = true
         colorSorterLabel.string = NSLocalizedString("colorSorter", comment: "")
         playButton.title = NSLocalizedString("play", comment: "")
         highScoreLabel.string = NSLocalizedString("highScore_Label", comment: "") + String(" \(GameStateSingleton.sharedInstance.highscore)")
     }
+    func didLoadFromCCB() {
+        setUpGameCenter()
+        GameCenterInteractor.sharedInstance.recievePlayerScore()
+    }
     func play() {
-        animationManager.runAnimationsForSequenceNamed("Go To Gameplay")
+//        animationManager.runAnimationsForSequenceNamed("Go To Gameplay")
+        CCDirector.sharedDirector().presentScene(CCBReader.loadAsScene("Gameplay"))
     }
     func gotoGameplay() {
         CCDirector.sharedDirector().presentScene(CCBReader.loadAsScene("Gameplay"))

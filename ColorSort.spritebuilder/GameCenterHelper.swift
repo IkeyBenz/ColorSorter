@@ -22,6 +22,22 @@ class GameCenterInteractor: NSObject, GKLocalPlayerListener {
     var delegate: GameCenterInteractorNotifications?
     var callingViewController: UIViewController?
     
+    func recievePlayerScore() {
+        
+        let leaderBoardRequest: GKLeaderboard = GKLeaderboard.init()
+        leaderBoardRequest.identifier = "colorSorterLeaderboard"
+        leaderBoardRequest.loadScoresWithCompletionHandler { (scores, error) -> Void in
+            if (error != nil) {
+                print("Error: \(error!.localizedDescription)")
+            } else if (scores != nil) {
+                let localPlayerScore = leaderBoardRequest.localPlayerScore
+                print("Local player's score: \(localPlayerScore!.value)")
+                GameStateSingleton.sharedInstance.highscore = Int(localPlayerScore!.value)
+            }
+        }
+        
+    }
+    
     // Singleton
     class var sharedInstance : GameCenterInteractor {
         struct Static {

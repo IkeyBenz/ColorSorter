@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		118B4A371BBF234400D71B8C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 118B4A391BBF234400D71B8C /* Localizable.strings */; };
-		1197B2081BBE3D36009C4564 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197B2071BBE3D36009C4564 /* MainScene.swift */; settings = {ASSET_TAGS = (); }; };
+		1197B2081BBE3D36009C4564 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1197B2071BBE3D36009C4564 /* MainScene.swift */; };
 		5B121030197484FA004C1E1D /* ColorSortActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* ColorSortActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
