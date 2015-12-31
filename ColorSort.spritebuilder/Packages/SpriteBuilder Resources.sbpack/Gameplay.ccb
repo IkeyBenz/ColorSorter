@@ -6598,7 +6598,7 @@ too fast, swipe up at anytime to slow them down!</string>
 								<key>value</key>
 								<array>
 									<string>Tip: To speed up the begining
-of the game, double tap!</string>
+of the game, swipe down!</string>
 									<false/>
 								</array>
 							</dict>
@@ -6617,7 +6617,7 @@ of the game, double tap!</string>
 								<string>FloatScale</string>
 								<key>value</key>
 								<array>
-									<real>16</real>
+									<real>18</real>
 									<integer>0</integer>
 								</array>
 							</dict>

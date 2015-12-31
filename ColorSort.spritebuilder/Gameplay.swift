@@ -30,7 +30,7 @@ class Gameplay: CCScene, ChartboostDelegate {
     var currentColorBeingTouched: Colors!
     var colorArray: [Colors] = []
     var swipeUp = UISwipeGestureRecognizer()
-    var doubleTap = UITapGestureRecognizer()
+    var swipeDown = UISwipeGestureRecognizer()
     var timesSwiped: Int = 1
     var tutorialColor = CCBReader.load("ColorBox") as! Colors
     var secondTutorialColor = CCBReader.load("ColorBox") as! Colors
@@ -111,7 +111,7 @@ class Gameplay: CCScene, ChartboostDelegate {
             if !slowMoActivated {
                 if skippedBegining && score < 50 {
                     colorSpeed = 2.8
-                    distanceBetweenColors = 0.6
+                    distanceBetweenColors = 0.5
                 } else {
                     updateDifficulty()
                 }
@@ -235,7 +235,7 @@ class Gameplay: CCScene, ChartboostDelegate {
         }
         swipesLeftIndicator.string = "Swipes Left: \(GameStateSingleton.sharedInstance.swipesLeft)"
         setupSwipeGesture()
-        setupDoubleTap()
+        setupSwipeDown()
     }
     
     override func update(delta: CCTime) {
@@ -260,7 +260,7 @@ class Gameplay: CCScene, ChartboostDelegate {
             
             if !gameoverLabelFell {
                 CCDirector.sharedDirector().view.removeGestureRecognizer(swipeUp)
-                CCDirector.sharedDirector().view.removeGestureRecognizer(doubleTap)
+                CCDirector.sharedDirector().view.removeGestureRecognizer(swipeDown)
                 unschedule("spawnColors")
                 animationManager.runAnimationsForSequenceNamed("Game Over")
                 let takePicture = CCActionCallBlock(block: {GameStateSingleton.sharedInstance.screenShot = self.takeScreenshot()})
@@ -473,10 +473,10 @@ class Gameplay: CCScene, ChartboostDelegate {
         swipeUp.direction = .Up
         CCDirector.sharedDirector().view.addGestureRecognizer(swipeUp)
     }
-    func setupDoubleTap() {
-        doubleTap = UITapGestureRecognizer(target: self, action: "skipBegining")
-        doubleTap.numberOfTapsRequired = 2
-        CCDirector.sharedDirector().view.addGestureRecognizer(doubleTap)
+    func setupSwipeDown() {
+        swipeDown = UISwipeGestureRecognizer(target: self, action: "skipBegining")
+        swipeDown.direction = .Down
+        CCDirector.sharedDirector().view.addGestureRecognizer(swipeDown)
     }
     func activateSlowMo() {
         if !gameover {
