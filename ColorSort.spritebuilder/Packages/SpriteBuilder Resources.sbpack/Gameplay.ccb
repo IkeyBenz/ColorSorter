@@ -10,13 +10,17 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
+<<<<<<< Updated upstream
 	<integer>52</integer>
+=======
+	<integer>50</integer>
+>>>>>>> Stashed changes
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>2</integer>
+	<integer>0</integer>
 	<key>docDimensionsType</key>
 	<integer>0</integer>
 	<key>fileType</key>
@@ -6769,7 +6773,7 @@ of the game, double tap!</string>
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>0.60000002384185791</real>
+							<real>1.5</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
