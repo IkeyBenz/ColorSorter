@@ -26,13 +26,10 @@ class MainScene: CCScene {
         GameCenterInteractor.sharedInstance.recievePlayerScore()
     }
     func play() {
-<<<<<<< Updated upstream
         animationManager.runAnimationsForSequenceNamed("Go To Gameplay")
 //        CCDirector.sharedDirector().presentScene(CCBReader.loadAsScene("Gameplay"))
     }
     func gotoGameplay() {
-=======
->>>>>>> Stashed changes
         CCDirector.sharedDirector().presentScene(CCBReader.loadAsScene("Gameplay"))
     }
 }
