@@ -30,7 +30,6 @@ class Gameplay: CCScene, ChartboostDelegate {
     var currentColorBeingTouched: Colors!
     var colorArray: [Colors] = []
     var swipeUp = UISwipeGestureRecognizer()
-    var doubleTap = UITapGestureRecognizer()
     var timesSwiped: Int = 1
     var tutorialColor = CCBReader.load("ColorBox") as! Colors
     var secondTutorialColor = CCBReader.load("ColorBox") as! Colors
@@ -52,7 +51,6 @@ class Gameplay: CCScene, ChartboostDelegate {
     weak var earnSwipesButton: CCButton!
     weak var highScoreButton: CCButton!
     weak var homeButton: CCButton!
-    weak var fastForwardIndicator: CCSprite!
     
     // BOOLEANS
     var playingTutorial: Bool = false
@@ -65,7 +63,6 @@ class Gameplay: CCScene, ChartboostDelegate {
     var gameover: Bool = false
     var swipesTutorialAlreadyShowedForCurrentGame: Bool = false
     var alreadySetSecondTutorialColor: Bool = false
-    var skippedBegining: Bool = false
     
     
     
@@ -109,12 +106,7 @@ class Gameplay: CCScene, ChartboostDelegate {
             scoreLabel.string = "\(score)"
             gameOverScore.string = NSLocalizedString("score", comment: "") + String(" \(score)")
             if !slowMoActivated {
-                if skippedBegining && score < 50 {
-                    colorSpeed = 2.8
-                    distanceBetweenColors = 0.6
-                } else {
-                    updateDifficulty()
-                }
+                updateDifficulty()
             }
             if score > GameStateSingleton.sharedInstance.highscore {
                 GameStateSingleton.sharedInstance.highscore = score
@@ -235,7 +227,6 @@ class Gameplay: CCScene, ChartboostDelegate {
         }
         swipesLeftIndicator.string = "Swipes Left: \(GameStateSingleton.sharedInstance.swipesLeft)"
         setupSwipeGesture()
-        setupDoubleTap()
     }
     
     override func update(delta: CCTime) {
@@ -260,7 +251,6 @@ class Gameplay: CCScene, ChartboostDelegate {
             
             if !gameoverLabelFell {
                 CCDirector.sharedDirector().view.removeGestureRecognizer(swipeUp)
-                CCDirector.sharedDirector().view.removeGestureRecognizer(doubleTap)
                 unschedule("spawnColors")
                 animationManager.runAnimationsForSequenceNamed("Game Over")
                 let takePicture = CCActionCallBlock(block: {GameStateSingleton.sharedInstance.screenShot = self.takeScreenshot()})
@@ -418,12 +408,12 @@ class Gameplay: CCScene, ChartboostDelegate {
     
     // Update difficulty
     func updateDifficulty() {
-        if score < 5 {
+        if score < 10 {
             colorSpeed = 4
             distanceBetweenColors = 1
-        } else if score < 20 && score >= 5 {
+        } else if score < 20 && score >= 10 {
             colorSpeed = 3.7
-            distanceBetweenColors = 0.8
+            distanceBetweenColors = 0.9
         } else if score < 30 && score >= 20 {
             colorSpeed = 3.4
             distanceBetweenColors = 0.8
@@ -472,11 +462,6 @@ class Gameplay: CCScene, ChartboostDelegate {
         swipeUp = UISwipeGestureRecognizer(target: self, action: "activateSlowMo")
         swipeUp.direction = .Up
         CCDirector.sharedDirector().view.addGestureRecognizer(swipeUp)
-    }
-    func setupDoubleTap() {
-        doubleTap = UITapGestureRecognizer(target: self, action: "skipBegining")
-        doubleTap.numberOfTapsRequired = 2
-        CCDirector.sharedDirector().view.addGestureRecognizer(doubleTap)
     }
     func activateSlowMo() {
         if !gameover {
@@ -637,14 +622,6 @@ class Gameplay: CCScene, ChartboostDelegate {
     
     
     // CALLBACKS
-    func skipBegining() {
-        skippedBegining = true
-        let delay = CCActionDelay(duration: 0.1)
-        let visible = CCActionCallBlock(block: {self.fastForwardIndicator.visible = true})
-        let invisible = CCActionCallBlock(block: {self.fastForwardIndicator.visible = false})
-        let blink = CCActionSequence(array: [visible, delay, invisible, delay])
-        runAction(CCActionSequence(array: [blink, blink, blink, blink]))
-    }
     func decreaseAmountOfSwipes() {
         if GameStateSingleton.sharedInstance.swipesLeft >= timesSwiped {
             GameStateSingleton.sharedInstance.swipesLeft -= timesSwiped
@@ -688,8 +665,15 @@ extension Gameplay: GKGameCenterControllerDelegate {
     }
 }
 
+// PENNIS
 
 
+//extension Gameplay: BannerDelegate {
+//    func bannerLoaded() {
+//        iAdHandler.sharedInstance.displayBannerAd()
+//        print("yes")
+//    }
+//}
 
 
 
