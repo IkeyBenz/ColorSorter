@@ -30,6 +30,10 @@ class Gameplay: CCScene, ChartboostDelegate {
     var currentColorBeingTouched: Colors!
     var colorArray: [Colors] = []
     var swipeUp = UISwipeGestureRecognizer()
+<<<<<<< HEAD
+=======
+    var swipeDown = UISwipeGestureRecognizer()
+>>>>>>> origin/master
     var timesSwiped: Int = 1
     var tutorialColor = CCBReader.load("ColorBox") as! Colors
     var secondTutorialColor = CCBReader.load("ColorBox") as! Colors
@@ -106,7 +110,16 @@ class Gameplay: CCScene, ChartboostDelegate {
             scoreLabel.string = "\(score)"
             gameOverScore.string = NSLocalizedString("score", comment: "") + String(" \(score)")
             if !slowMoActivated {
+<<<<<<< HEAD
                 updateDifficulty()
+=======
+                if skippedBegining && score < 50 {
+                    colorSpeed = 2.8
+                    distanceBetweenColors = 0.5
+                } else {
+                    updateDifficulty()
+                }
+>>>>>>> origin/master
             }
             if score > GameStateSingleton.sharedInstance.highscore {
                 GameStateSingleton.sharedInstance.highscore = score
@@ -227,6 +240,10 @@ class Gameplay: CCScene, ChartboostDelegate {
         }
         swipesLeftIndicator.string = "Swipes Left: \(GameStateSingleton.sharedInstance.swipesLeft)"
         setupSwipeGesture()
+<<<<<<< HEAD
+=======
+        setupSwipeDown()
+>>>>>>> origin/master
     }
     
     override func update(delta: CCTime) {
@@ -251,6 +268,10 @@ class Gameplay: CCScene, ChartboostDelegate {
             
             if !gameoverLabelFell {
                 CCDirector.sharedDirector().view.removeGestureRecognizer(swipeUp)
+<<<<<<< HEAD
+=======
+                CCDirector.sharedDirector().view.removeGestureRecognizer(swipeDown)
+>>>>>>> origin/master
                 unschedule("spawnColors")
                 animationManager.runAnimationsForSequenceNamed("Game Over")
                 let takePicture = CCActionCallBlock(block: {GameStateSingleton.sharedInstance.screenShot = self.takeScreenshot()})
@@ -463,6 +484,14 @@ class Gameplay: CCScene, ChartboostDelegate {
         swipeUp.direction = .Up
         CCDirector.sharedDirector().view.addGestureRecognizer(swipeUp)
     }
+<<<<<<< HEAD
+=======
+    func setupSwipeDown() {
+        swipeDown = UISwipeGestureRecognizer(target: self, action: "skipBegining")
+        swipeDown.direction = .Down
+        CCDirector.sharedDirector().view.addGestureRecognizer(swipeDown)
+    }
+>>>>>>> origin/master
     func activateSlowMo() {
         if !gameover {
             if !paused {
